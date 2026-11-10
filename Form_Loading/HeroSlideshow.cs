@@ -22,7 +22,10 @@ namespace Form_Loading
         {
             this.pictureBox = pictureBox;
             for (int i = 0; i < ImageCount; i++)
-                images[i] = (Image)Properties.Resources.ResourceManager.GetObject("img" + i);
+            {
+                var original = (Image)Properties.Resources.ResourceManager.GetObject("img" + i);
+                images[i] = UI.ImageFit.Cover(original, pictureBox.Size);
+            }
 
             index = new Random().Next(ImageCount);
             timer = new Timer { Interval = IntervalMs };

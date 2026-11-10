@@ -5,7 +5,7 @@ using Form_Loading.UI;
 
 namespace Form_Loading
 {
-    /// <summary>Home screen: rotating hero banner plus a tile for each category.</summary>
+    /// <summary>Home screen: rotating hero banner plus a card for each category.</summary>
     public partial class FormOne : Form
     {
         private HeroSlideshow slideshow;
@@ -14,29 +14,34 @@ namespace Form_Loading
         {
             InitializeComponent();
 
-            // Each category tile is a picture with a caption on top; both open the category
-            OpenOnClick(Catalog.Handbags, pictureBox2, label1);
-            OpenOnClick(Catalog.Jewellery, pictureBox3, label2);
-            OpenOnClick(Catalog.Decor, pictureBox5, label5, label6);
-            OpenOnClick(Catalog.Pots, pictureBox4, label3, label4);
+            // Each category card opens its collection, wherever it's clicked
+            SetUpCard(Catalog.Handbags, panelHandbags, pictureHandbags, labelHandbags, labelHandbagsShop);
+            SetUpCard(Catalog.Jewellery, panelJewellery, pictureJewellery, labelJewellery, labelJewelleryShop);
+            SetUpCard(Catalog.Decor, panelDecor, pictureDecor, labelDecor, labelDecorShop);
+            SetUpCard(Catalog.Pots, panelPots, picturePots, labelPots, labelPotsShop);
 
-            label7.Cursor = Cursors.Hand;
-            label7.Click += (s, e) => Nav.Go(this, new FormCategory());
+            labelViewAll.Click += (s, e) => Nav.Go(this, new FormCategory());
         }
 
         private void FormOne_Load(object sender, EventArgs e)
         {
-            slideshow = new HeroSlideshow(pictureBox1);
+            slideshow = new HeroSlideshow(pictureBoxHero);
             slideshow.Start();
             FormClosed += (s, args) => slideshow.Dispose();
         }
 
-        private void OpenOnClick(string category, params Control[] controls)
+        private void SetUpCard(string category, Panel card, PictureBox picture, params Label[] labels)
         {
-            foreach (Control c in controls)
+            // Crop the photo to fill the card without stretching it
+            picture.Image = ImageFit.Cover(picture.Image, picture.Size);
+
+            picture.Cursor = Cursors.Hand;
+            card.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
+            picture.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
+            foreach (Label label in labels)
             {
-                c.Cursor = Cursors.Hand;
-                c.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
+                label.Cursor = Cursors.Hand;
+                label.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
             }
         }
     }

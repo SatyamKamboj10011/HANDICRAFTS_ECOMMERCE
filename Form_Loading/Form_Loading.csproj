@@ -118,6 +118,7 @@
     <Compile Include="Models\Catalog.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\UserStore.cs" />
+    <Compile Include="UI\ImageFit.cs" />
     <Compile Include="UI\Nav.cs" />
     <Compile Include="UI\ProductCards.cs" />
     <Compile Include="UI\Theme.cs" />
