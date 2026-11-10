@@ -35,7 +35,12 @@
             this.buttonSignUp = new System.Windows.Forms.Button();
             this.labelGuest = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHero = new System.Windows.Forms.PictureBox();
+            this.labelBrand = new System.Windows.Forms.Label();
+            this.labelTagline = new System.Windows.Forms.Label();
             this.panelCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHero)).BeginInit();
+            this.pictureBoxHero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             //
@@ -52,7 +57,7 @@
             this.panelCard.Controls.Add(this.labelNoAccount);
             this.panelCard.Controls.Add(this.buttonSignUp);
             this.panelCard.Controls.Add(this.labelGuest);
-            this.panelCard.Location = new System.Drawing.Point(640, 44);
+            this.panelCard.Location = new System.Drawing.Point(608, 44);
             this.panelCard.Name = "panelCard";
             this.panelCard.Padding = new System.Windows.Forms.Padding(32);
             this.panelCard.Size = new System.Drawing.Size(380, 440);
@@ -179,23 +184,59 @@
             //
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Form_Loading.Properties.Resources.a_visually_appealing_and_meaningful_logo_for_handc_oaqGsI5nTViMB4uBa5oiKw_Bd6HOpCKT8eKPaxM6sPAVA_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(214, 118);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(96, 82);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 86);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            //
+            // labelBrand
+            //
+            this.labelBrand.BackColor = System.Drawing.Color.Transparent;
+            this.labelBrand.Font = new System.Drawing.Font("Georgia", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(58)))), ((int)(((byte)(33)))));
+            this.labelBrand.Location = new System.Drawing.Point(114, 206);
+            this.labelBrand.Name = "labelBrand";
+            this.labelBrand.Size = new System.Drawing.Size(300, 84);
+            this.labelBrand.TabIndex = 21;
+            this.labelBrand.Text = "Handcraft\r\nHeaven";
+            this.labelBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //
+            // labelTagline
+            //
+            this.labelTagline.BackColor = System.Drawing.Color.Transparent;
+            this.labelTagline.Font = new System.Drawing.Font("Georgia", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTagline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(96)))), ((int)(((byte)(72)))));
+            this.labelTagline.Location = new System.Drawing.Point(114, 292);
+            this.labelTagline.Name = "labelTagline";
+            this.labelTagline.Size = new System.Drawing.Size(300, 26);
+            this.labelTagline.TabIndex = 22;
+            this.labelTagline.Text = "Handmade with love";
+            this.labelTagline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //
+            // pictureBoxHero
+            //
+            this.pictureBoxHero.Controls.Add(this.pictureBox1);
+            this.pictureBoxHero.Controls.Add(this.labelBrand);
+            this.pictureBoxHero.Controls.Add(this.labelTagline);
+            this.pictureBoxHero.Image = global::Form_Loading.Properties.Resources.IMG_20240824_WA0020_2;
+            this.pictureBoxHero.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxHero.Name = "pictureBoxHero";
+            this.pictureBoxHero.Size = new System.Drawing.Size(528, 528);
+            this.pictureBoxHero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHero.TabIndex = 20;
+            this.pictureBoxHero.TabStop = false;
             //
             // FormMain
             //
             this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::Form_Loading.Properties.Resources.IMG_20240824_WA0020_2;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1069, 528);
             this.Controls.Add(this.panelCard);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxHero);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -206,6 +247,8 @@
             this.panelCard.ResumeLayout(false);
             this.panelCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pictureBoxHero.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHero)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -224,5 +267,8 @@
         private System.Windows.Forms.Button buttonSignUp;
         private System.Windows.Forms.Label labelGuest;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxHero;
+        private System.Windows.Forms.Label labelBrand;
+        private System.Windows.Forms.Label labelTagline;
     }
 }
