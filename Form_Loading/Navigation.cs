@@ -1,90 +1,90 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Form_Loading.Models;
+using Form_Loading.UI;
 
 namespace Form_Loading
 {
+    /// <summary>
+    /// Sidebar shown on every shop screen: logo (home), login/sign out,
+    /// collections, cart with a live item count, and the signed-in user.
+    /// </summary>
     public partial class Navigation : UserControl
     {
         public Navigation()
         {
             InitializeComponent();
+
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Click += (s, e) => GoTo(new FormOne());
         }
 
-        private void buttonViewProducts_Click(object sender, EventArgs e)
+        protected override void OnHandleCreated(EventArgs e)
         {
-            // Get the current form that contains this navigation control
-            Form currentForm = FindForm();
+            base.OnHandleCreated(e);
 
+            // Skip runtime wiring when shown in the Visual Studio designer
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime || DesignMode)
+                return;
 
-            // Close the current form
-            currentForm.Close();
-
-            // Create a new instance of FormThree and pass the current form as the parent
-            FormThree formThree = new FormThree(currentForm);
-            formThree.Show();
-
-
-            // Show FormThree and bring it to the front
-
-            // formThree.BringToFront();
+            // Unsubscribe first so a recreated handle never subscribes twice
+            Cart.Changed -= UpdateState;
+            UserStore.CurrentChanged -= UpdateState;
+            Cart.Changed += UpdateState;
+            UserStore.CurrentChanged += UpdateState;
+            UpdateState(this, EventArgs.Empty);
         }
 
-        private void buttonLoginPage_Click(object sender, EventArgs e)
+        protected override void OnHandleDestroyed(EventArgs e)
         {
-           
-            // Get the current form that contains this navigation control
-            Form currentForm = FindForm();
-
-            // Close the current form (FormOne)
-            currentForm.Close();
-
-            // Show the main form (FormMain)
-            FormMain mainForm = new FormMain(); 
-            mainForm.Show();
-
-            
+            // Static events would otherwise keep closed screens alive
+            Cart.Changed -= UpdateState;
+            UserStore.CurrentChanged -= UpdateState;
+            base.OnHandleDestroyed(e);
         }
 
-      
-
-        private void buttonSignUp_Click(object sender, EventArgs e)
+        private void UpdateState(object sender, EventArgs e)
         {
-            
-            Form currentForm = FindForm();
-
-            currentForm.Close();
-            
-
-            FormTwo formTwo = new FormTwo(currentForm);
-            formTwo.Show();
+            buttonCart.Text = Cart.Count == 0 ? "🛒 Cart" : "🛒 Cart (" + Cart.Count + ")";
+            buttonLogin.Text = UserStore.IsSignedIn ? "👤 Sign Out" : "👤 Login";
+            labelUser.Text = UserStore.IsSignedIn ? UserStore.Current.Name : "Guest";
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void GoTo(Form next)
         {
-
+            Form current = FindForm();
+            if (current != null && current.GetType() == next.GetType())
+            {
+                next.Dispose(); // already on this screen
+                return;
+            }
+            Nav.Go(current, next);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-
+            GoTo(new FormMain());
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonHandbags_Click(object sender, EventArgs e)
         {
-            Form currentForm = FindForm();
+            GoTo(new FormThree());
+        }
 
-            currentForm.Close();
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            GoTo(new FormTwo());
+        }
 
+        private void buttonCategories_Click(object sender, EventArgs e)
+        {
+            GoTo(new FormCategory());
+        }
 
-            FormCategory formCategory = new FormCategory(currentForm);
-            formCategory.Show();
+        private void buttonCart_Click(object sender, EventArgs e)
+        {
+            GoTo(new FormCart());
         }
     }
 }

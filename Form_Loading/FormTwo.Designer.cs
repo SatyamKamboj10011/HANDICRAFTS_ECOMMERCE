@@ -23,36 +23,36 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.buttonLoadFormThree = new System.Windows.Forms.Button();
+            this.buttonCreateAccount = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonGoBack = new System.Windows.Forms.Button();
+            this.buttonSignIn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonLoadFormThree
+            // buttonCreateAccount
             // 
-            this.buttonLoadFormThree.BackColor = System.Drawing.Color.Transparent;
-            this.buttonLoadFormThree.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonLoadFormThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLoadFormThree.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonLoadFormThree.Location = new System.Drawing.Point(639, 409);
-            this.buttonLoadFormThree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonLoadFormThree.Name = "buttonLoadFormThree";
-            this.buttonLoadFormThree.Size = new System.Drawing.Size(111, 38);
-            this.buttonLoadFormThree.TabIndex = 1;
-            this.buttonLoadFormThree.Text = "Sign Up";
-            this.buttonLoadFormThree.UseVisualStyleBackColor = false;
-            this.buttonLoadFormThree.Click += new System.EventHandler(this.buttonLoadFormThree_Click);
+            this.buttonCreateAccount.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCreateAccount.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreateAccount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCreateAccount.Location = new System.Drawing.Point(639, 409);
+            this.buttonCreateAccount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonCreateAccount.Name = "buttonCreateAccount";
+            this.buttonCreateAccount.Size = new System.Drawing.Size(111, 38);
+            this.buttonCreateAccount.TabIndex = 1;
+            this.buttonCreateAccount.Text = "Sign Up";
+            this.buttonCreateAccount.UseVisualStyleBackColor = false;
+            this.buttonCreateAccount.Click += new System.EventHandler(this.buttonCreateAccount_Click);
             // 
             // label3
             // 
@@ -78,34 +78,32 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Use Your Email For Registration :";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(474, 141);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 39);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.Location = new System.Drawing.Point(474, 141);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(286, 39);
+            this.textBoxName.TabIndex = 7;
             // 
-            // textBox2
+            // textBoxEmail
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(474, 235);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(286, 39);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmail.Location = new System.Drawing.Point(474, 235);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(286, 39);
+            this.textBoxEmail.TabIndex = 8;
             // 
-            // textBox3
+            // textBoxPassword
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(474, 321);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(286, 39);
-            this.textBox3.TabIndex = 9;
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(474, 321);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(286, 39);
+            this.textBoxPassword.TabIndex = 9;
             // 
             // label5
             // 
@@ -142,7 +140,6 @@
             this.label7.Size = new System.Drawing.Size(134, 27);
             this.label7.TabIndex = 12;
             this.label7.Text = "Password 🔏:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // panel1
             // 
@@ -166,19 +163,19 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // buttonGoBack
+            // buttonSignIn
             // 
-            this.buttonGoBack.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonGoBack.FlatAppearance.BorderSize = 0;
-            this.buttonGoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoBack.Location = new System.Drawing.Point(485, 409);
-            this.buttonGoBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonGoBack.Name = "buttonGoBack";
-            this.buttonGoBack.Size = new System.Drawing.Size(103, 38);
-            this.buttonGoBack.TabIndex = 1;
-            this.buttonGoBack.Text = "Sign In";
-            this.buttonGoBack.UseVisualStyleBackColor = true;
-            this.buttonGoBack.Click += new System.EventHandler(this.buttonGoBack_Click);
+            this.buttonSignIn.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.buttonSignIn.FlatAppearance.BorderSize = 0;
+            this.buttonSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSignIn.Location = new System.Drawing.Point(485, 409);
+            this.buttonSignIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSignIn.Name = "buttonSignIn";
+            this.buttonSignIn.Size = new System.Drawing.Size(103, 38);
+            this.buttonSignIn.TabIndex = 1;
+            this.buttonSignIn.Text = "Sign In";
+            this.buttonSignIn.UseVisualStyleBackColor = true;
+            this.buttonSignIn.Click += new System.EventHandler(this.buttonSignIn_Click);
             // 
             // FormTwo
             // 
@@ -188,21 +185,20 @@
             this.BackgroundImage = global::Form_Loading.Properties.Resources.paper_1074131_19203;
             this.ClientSize = new System.Drawing.Size(1069, 528);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.buttonGoBack);
+            this.Controls.Add(this.buttonSignIn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxEmail);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.buttonLoadFormThree);
+            this.Controls.Add(this.buttonCreateAccount);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormTwo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "This is Form Two";
-            this.Load += new System.EventHandler(this.FormTwo_Load_1);
+            this.Text = "Create Account - Handcraft Heaven";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -212,14 +208,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonGoBack;
-        private System.Windows.Forms.Button buttonLoadFormThree;
+        private System.Windows.Forms.Button buttonSignIn;
+        private System.Windows.Forms.Button buttonCreateAccount;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

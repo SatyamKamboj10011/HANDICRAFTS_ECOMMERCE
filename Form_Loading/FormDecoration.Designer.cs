@@ -678,8 +678,7 @@
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormDecoration";
-            this.Text = "FormDecoration";
-            this.Load += new System.EventHandler(this.FormDecoration_Load);
+            this.Text = "Decorative Items - Handcraft Heaven";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

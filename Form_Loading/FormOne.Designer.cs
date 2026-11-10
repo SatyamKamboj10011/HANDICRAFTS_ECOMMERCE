@@ -109,7 +109,6 @@
             this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "HANDBAGS";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -219,7 +218,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormOne";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "This is Form One";
+            this.Text = "Handcraft Heaven";
             this.Load += new System.EventHandler(this.FormOne_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

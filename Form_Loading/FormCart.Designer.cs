@@ -28,73 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabOrderForm = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabOrderForm.SuspendLayout();
+            this.navigation1 = new Form_Loading.Navigation();
             this.SuspendLayout();
-            // 
-            // tabOrderForm
-            // 
-            this.tabOrderForm.Controls.Add(this.tabPage1);
-            this.tabOrderForm.Controls.Add(this.tabPage2);
-            this.tabOrderForm.Controls.Add(this.tabPage3);
-            this.tabOrderForm.Location = new System.Drawing.Point(244, 56);
-            this.tabOrderForm.Name = "tabOrderForm";
-            this.tabOrderForm.SelectedIndex = 0;
-            this.tabOrderForm.Size = new System.Drawing.Size(790, 571);
-            this.tabOrderForm.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(782, 538);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Order Form";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(782, 538);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(782, 538);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
+            //
+            // navigation1
+            //
+            this.navigation1.Location = new System.Drawing.Point(-3, -1);
+            this.navigation1.Name = "navigation1";
+            this.navigation1.Size = new System.Drawing.Size(228, 575);
+            this.navigation1.TabIndex = 0;
+            //
             // FormCart
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            //
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Form_Loading.Properties.Resources.paper_1074131_19204;
-            this.ClientSize = new System.Drawing.Size(1260, 731);
-            this.Controls.Add(this.tabOrderForm);
+            this.BackgroundImage = global::Form_Loading.Properties.Resources.paper_1074131_19201;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1069, 528);
+            this.Controls.Add(this.navigation1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormCart";
-            this.Text = "FormCart";
-            this.tabOrderForm.ResumeLayout(false);
+            this.Text = "Your Cart - Handcraft Heaven";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabOrderForm;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private Navigation navigation1;
     }
 }

@@ -1,97 +1,38 @@
-﻿//
-// FORM TWO
-// ========
-// FormTwo has a child of its own called
-// FormThree. FormThree is a grandchild of
-// FormMain.
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using Form_Loading.Models;
+using Form_Loading.UI;
 
-namespace Form_Loading {
-    public partial class FormTwo : Form {        
-        Form FormParent;
-        Form FormThree;
-        
-        //
-        // Constructor FormTwo
-        // ===================
-        public FormTwo(Form FormParent) {
+namespace Form_Loading
+{
+    /// <summary>Create-account screen.</summary>
+    public partial class FormTwo : Form
+    {
+        public FormTwo()
+        {
             InitializeComponent();
 
-            // The parent of this form is FormMain. A reference
-            // to it was passed in via this Constructor. Save it
-            // so we know where to go back to.
-            this.FormParent = FormParent;
-
-            // Form Two can also display Form Three ...
-            FormThree = new FormThree(this); 
+            textBoxPassword.UseSystemPasswordChar = true;
+            AcceptButton = buttonCreateAccount;
         }
 
-        //
-        // FormTwo_Load()
-        // ===============
-        private void FormTwo_Load(object sender, EventArgs e) {        
-        }
-
-        //
-        // buttonGoBack_Click()
-        // ====================
-        private void buttonGoBack_Click(object sender, EventArgs e) {
-
-            // Hide FormTwo now we have finished with it.
-          this.Hide();
-
-            // Go back to the parent of this form. It is FormMain.
-            FormParent.Show();
-           
-        }
-
-        //
-        // buttonLoadFormThree_Click()
-        // ===========================
-       private void buttonLoadFormThree_Click(object sender, EventArgs e) {
-            // Hide FormTwo now we have finished with it.
-          //this.Hide();
-
-            //Load Form Three.
-           // FormThree.Show();
-        }
-
-        private void FormTwo_Load_1(object sender, EventArgs e) {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void buttonCreateAccount_Click(object sender, EventArgs e)
         {
+            string error = UserStore.Register(textBoxName.Text, textBoxEmail.Text, textBoxPassword.Text);
+            if (error != null)
+            {
+                MessageBox.Show(error, "Create Account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            MessageBox.Show("Welcome to Handcraft Heaven, " + UserStore.Current.Name + "!",
+                "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Nav.Go(this, new FormOne());
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void buttonSignIn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
+            Nav.Go(this, new FormMain());
         }
     }
 }

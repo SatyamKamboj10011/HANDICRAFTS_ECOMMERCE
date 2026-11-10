@@ -30,15 +30,15 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.buttonSignUp = new System.Windows.Forms.Button();
-            this.buttonViewProducts = new System.Windows.Forms.Button();
-            this.buttonLoginPage = new System.Windows.Forms.Button();
+            this.buttonCategories = new System.Windows.Forms.Button();
+            this.buttonCart = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
+            this.buttonHandbags = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -54,36 +54,35 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.buttonSignUp);
-            this.panel1.Controls.Add(this.buttonViewProducts);
-            this.panel1.Controls.Add(this.buttonLoginPage);
+            this.panel1.Controls.Add(this.buttonCategories);
+            this.panel1.Controls.Add(this.buttonCart);
+            this.panel1.Controls.Add(this.buttonRegister);
+            this.panel1.Controls.Add(this.buttonHandbags);
+            this.panel1.Controls.Add(this.buttonLogin);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 575);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.labelUser);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Location = new System.Drawing.Point(14, 464);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(204, 51);
             this.panel3.TabIndex = 7;
             // 
-            // label1
+            // labelUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "USER";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(94, 14);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(45, 16);
+            this.labelUser.TabIndex = 1;
+            this.labelUser.Text = "USER";
             // 
             // pictureBox2
             // 
@@ -114,60 +113,60 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // button5
+            // buttonCategories
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(46, 293);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 43);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Category";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCategories.Location = new System.Drawing.Point(46, 293);
+            this.buttonCategories.Name = "buttonCategories";
+            this.buttonCategories.Size = new System.Drawing.Size(133, 43);
+            this.buttonCategories.TabIndex = 4;
+            this.buttonCategories.Text = "Category";
+            this.buttonCategories.UseVisualStyleBackColor = true;
+            this.buttonCategories.Click += new System.EventHandler(this.buttonCategories_Click);
             // 
-            // button4
+            // buttonCart
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(46, 342);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 43);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCart.Location = new System.Drawing.Point(46, 342);
+            this.buttonCart.Name = "buttonCart";
+            this.buttonCart.Size = new System.Drawing.Size(133, 43);
+            this.buttonCart.TabIndex = 3;
+            this.buttonCart.Text = "🛒 Cart";
+            this.buttonCart.UseVisualStyleBackColor = true;
+            this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
             // 
-            // buttonSignUp
+            // buttonRegister
             // 
-            this.buttonSignUp.Font = new System.Drawing.Font("Juice ITC", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSignUp.Location = new System.Drawing.Point(46, 244);
-            this.buttonSignUp.Name = "buttonSignUp";
-            this.buttonSignUp.Size = new System.Drawing.Size(133, 43);
-            this.buttonSignUp.TabIndex = 2;
-            this.buttonSignUp.Text = "Register";
-            this.buttonSignUp.UseVisualStyleBackColor = true;
-            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
+            this.buttonRegister.Font = new System.Drawing.Font("Juice ITC", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegister.Location = new System.Drawing.Point(46, 244);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(133, 43);
+            this.buttonRegister.TabIndex = 2;
+            this.buttonRegister.Text = "Register";
+            this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
-            // buttonViewProducts
+            // buttonHandbags
             // 
-            this.buttonViewProducts.Font = new System.Drawing.Font("Juice ITC", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonViewProducts.Location = new System.Drawing.Point(46, 195);
-            this.buttonViewProducts.Name = "buttonViewProducts";
-            this.buttonViewProducts.Size = new System.Drawing.Size(133, 43);
-            this.buttonViewProducts.TabIndex = 1;
-            this.buttonViewProducts.Text = "👜HandBags";
-            this.buttonViewProducts.UseVisualStyleBackColor = true;
-            this.buttonViewProducts.Click += new System.EventHandler(this.buttonViewProducts_Click);
+            this.buttonHandbags.Font = new System.Drawing.Font("Juice ITC", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHandbags.Location = new System.Drawing.Point(46, 195);
+            this.buttonHandbags.Name = "buttonHandbags";
+            this.buttonHandbags.Size = new System.Drawing.Size(133, 43);
+            this.buttonHandbags.TabIndex = 1;
+            this.buttonHandbags.Text = "👜 Handbags";
+            this.buttonHandbags.UseVisualStyleBackColor = true;
+            this.buttonHandbags.Click += new System.EventHandler(this.buttonHandbags_Click);
             // 
-            // buttonLoginPage
+            // buttonLogin
             // 
-            this.buttonLoginPage.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLoginPage.Location = new System.Drawing.Point(46, 146);
-            this.buttonLoginPage.Name = "buttonLoginPage";
-            this.buttonLoginPage.Size = new System.Drawing.Size(133, 43);
-            this.buttonLoginPage.TabIndex = 0;
-            this.buttonLoginPage.Text = "👤Login";
-            this.buttonLoginPage.UseVisualStyleBackColor = true;
-            this.buttonLoginPage.Click += new System.EventHandler(this.buttonLoginPage_Click);
+            this.buttonLogin.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.Location = new System.Drawing.Point(46, 146);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(133, 43);
+            this.buttonLogin.TabIndex = 0;
+            this.buttonLogin.Text = "👤 Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // Navigation
             // 
@@ -189,15 +188,15 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button buttonSignUp;
-        private System.Windows.Forms.Button buttonViewProducts;
-        private System.Windows.Forms.Button buttonLoginPage;
+        private System.Windows.Forms.Button buttonCategories;
+        private System.Windows.Forms.Button buttonCart;
+        private System.Windows.Forms.Button buttonRegister;
+        private System.Windows.Forms.Button buttonHandbags;
+        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

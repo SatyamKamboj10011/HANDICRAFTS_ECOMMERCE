@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonGoBack = new System.Windows.Forms.Button();
+            this.buttonHome = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -103,16 +103,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonGoBack
+            // buttonHome
             // 
-            this.buttonGoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoBack.Location = new System.Drawing.Point(991, 7);
-            this.buttonGoBack.Name = "buttonGoBack";
-            this.buttonGoBack.Size = new System.Drawing.Size(51, 35);
-            this.buttonGoBack.TabIndex = 1;
-            this.buttonGoBack.Text = "🏠";
-            this.buttonGoBack.UseVisualStyleBackColor = true;
-            this.buttonGoBack.Click += new System.EventHandler(this.buttonGoBack_Click);
+            this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHome.Location = new System.Drawing.Point(991, 7);
+            this.buttonHome.Name = "buttonHome";
+            this.buttonHome.Size = new System.Drawing.Size(51, 35);
+            this.buttonHome.TabIndex = 1;
+            this.buttonHome.Text = "🏠";
+            this.buttonHome.UseVisualStyleBackColor = true;
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // label2
             // 
@@ -136,7 +136,6 @@
             this.label5.Size = new System.Drawing.Size(35, 18);
             this.label5.TabIndex = 16;
             this.label5.Text = "$15";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // dateTimePicker1
             // 
@@ -156,7 +155,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel1
             // 
@@ -180,7 +178,6 @@
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(0, 16);
             this.linkLabel1.TabIndex = 17;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label8
             // 
@@ -595,7 +592,6 @@
             this.label23.Size = new System.Drawing.Size(32, 22);
             this.label23.TabIndex = 29;
             this.label23.Text = "🛒";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // label24
             // 
@@ -725,13 +721,12 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonGoBack);
+            this.Controls.Add(this.buttonHome);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FormThree";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "This is Form Three";
-            this.Load += new System.EventHandler(this.FormThree_Load);
+            this.Text = "Handbags - Handcraft Heaven";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -765,7 +760,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonGoBack;
+        private System.Windows.Forms.Button buttonHome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;

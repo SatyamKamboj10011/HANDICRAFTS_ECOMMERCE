@@ -116,11 +116,6 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label26);
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(259, 80);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(160, 197);
@@ -735,7 +730,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.navigation1);
             this.Name = "FormJewellery";
-            this.Text = "FormJewellery";
+            this.Text = "Jewellery - Handcraft Heaven";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

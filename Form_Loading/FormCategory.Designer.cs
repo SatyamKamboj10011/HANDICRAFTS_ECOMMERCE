@@ -57,7 +57,6 @@
             this.navigation1.Name = "navigation1";
             this.navigation1.Size = new System.Drawing.Size(256, 719);
             this.navigation1.TabIndex = 0;
-            this.navigation1.Load += new System.EventHandler(this.navigation1_Load);
             // 
             // panel1
             // 
@@ -89,7 +88,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(388, 245);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox5
             // 
@@ -185,8 +183,7 @@
             this.Controls.Add(this.navigation1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormCategory";
-            this.Text = "FormCategory";
-            this.Load += new System.EventHandler(this.FormCategory_Load);
+            this.Text = "Categories - Handcraft Heaven";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);

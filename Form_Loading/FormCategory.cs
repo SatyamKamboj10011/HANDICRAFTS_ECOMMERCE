@@ -1,40 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using Form_Loading.Models;
+using Form_Loading.UI;
 
 namespace Form_Loading
 {
+    /// <summary>Category overview: one large tile per collection.</summary>
     public partial class FormCategory : Form
     {
-        Form FormParent;
-        public FormCategory(Form FormParent)
+        public FormCategory()
         {
             InitializeComponent();
-            this.FormParent = FormParent;
+
+            OpenOnClick(Catalog.Handbags, panel1, pictureBox1);
+            OpenOnClick(Catalog.Pots, panel3, pictureBox2, pictureBox3);
+            OpenOnClick(Catalog.Jewellery, panel4, pictureBox4);
+            OpenOnClick(Catalog.Decor, panel2, pictureBox5);
         }
 
-        private void FormCategory_Load(object sender, EventArgs e)
+        private void OpenOnClick(string category, params Control[] controls)
         {
-           
-
-           
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void navigation1_Load(object sender, EventArgs e)
-        {
-
+            ToolTip tip = new ToolTip();
+            foreach (Control c in controls)
+            {
+                c.Cursor = Cursors.Hand;
+                tip.SetToolTip(c, "Shop " + category);
+                c.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
+            }
         }
     }
 }
