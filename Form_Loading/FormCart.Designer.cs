@@ -42,8 +42,8 @@
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Form_Loading.Properties.Resources.paper_1074131_19201;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.DoubleBuffered = true;
             this.ClientSize = new System.Drawing.Size(1069, 528);
             this.Controls.Add(this.navigation1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

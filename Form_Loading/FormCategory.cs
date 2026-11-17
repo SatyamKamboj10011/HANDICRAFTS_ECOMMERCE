@@ -1,26 +1,31 @@
-﻿using System.Windows.Forms;
+using System.Linq;
+using System.Windows.Forms;
 using Form_Loading.Models;
 using Form_Loading.UI;
 
 namespace Form_Loading
 {
-    /// <summary>Category overview: one large tile per collection.</summary>
+    /// <summary>All collections: one large photo tile per category.</summary>
     public partial class FormCategory : Form
     {
         public FormCategory()
         {
             InitializeComponent();
 
-            OpenOnClick(Catalog.Handbags, panel1, pictureBox1);
-            OpenOnClick(Catalog.Pots, panel3, pictureBox2, pictureBox3);
-            OpenOnClick(Catalog.Jewellery, panel4, pictureBox4);
-            OpenOnClick(Catalog.Decor, panel2, pictureBox5);
+            SetUpTile(Catalog.Handbags, panelHandbags, pictureHandbags, labelHandbagsCount, labelHandbags, labelHandbagsArrow);
+            SetUpTile(Catalog.Jewellery, panelJewellery, pictureJewellery, labelJewelleryCount, labelJewellery, labelJewelleryArrow);
+            SetUpTile(Catalog.Decor, panelDecor, pictureDecor, labelDecorCount, labelDecor, labelDecorArrow);
+            SetUpTile(Catalog.Pots, panelPots, picturePots, labelPotsCount, labelPots, labelPotsArrow);
         }
 
-        private void OpenOnClick(string category, params Control[] controls)
+        private void SetUpTile(string category, Panel tile, PictureBox picture, Label count, params Label[] labels)
         {
-            ToolTip tip = new ToolTip();
-            foreach (Control c in controls)
+            // Crop the photo to fill the tile without stretching it
+            picture.Image = ImageFit.Cover(picture.Image, picture.Size);
+            count.Text = Catalog.InCategory(category).Count() + " items";
+
+            var tip = new ToolTip();
+            foreach (Control c in new Control[] { tile, picture, count }.Concat(labels))
             {
                 c.Cursor = Cursors.Hand;
                 tip.SetToolTip(c, "Shop " + category);

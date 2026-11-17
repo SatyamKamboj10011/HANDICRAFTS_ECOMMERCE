@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,167 +7,178 @@ using Form_Loading.Models;
 namespace Form_Loading.UI
 {
     /// <summary>
-    /// Connects product cards to the catalogue: fills in the real name and
-    /// price, opens the product page when the picture is clicked, and adds
-    /// to the cart when the 🛒 icon is clicked.
+    /// Builds the product cards used on every collection page and fills a
+    /// grid with them straight from the catalogue.
     /// </summary>
     public static class ProductCards
     {
-        private const string CartIcon = "🛒";
-
-        // Card panels on the designer screens, in display order, and the product each one shows
-        private static readonly Dictionary<string, string[]> designerCards = new Dictionary<string, string[]>
-        {
-            { nameof(FormThree),      new[] { "panel1:HB01", "panel2:HB02", "panel3:HB03", "panel4:HB04", "panel7:HB05", "panel5:HB06", "panel9:HB07", "panel8:HB08" } },
-            { nameof(FormJewellery),  new[] { "panel2:JW01", "panel3:JW02", "panel5:JW03", "panel4:JW04", "panel6:JW05", "panel9:JW06", "panel11:JW07", "panel15:JW08" } },
-            { nameof(FormDecoration), new[] { "panel4:DC01", "panel1:DC02", "panel3:DC03", "panel2:DC04", "panel5:DC05", "panel7:DC06", "panel6:DC07", "panel8:DC08" } },
-        };
-
-        /// <summary>Wires up every product card on a designer-built category screen.</summary>
-        public static void BindDesignerCards(Form form)
-        {
-            foreach (string entry in designerCards[form.GetType().Name])
-            {
-                string[] parts = entry.Split(':');
-                Control panel = FindOutsideSidebar(form, parts[0]);
-                Product product = Catalog.Find(parts[1]);
-                if (panel != null && product != null)
-                    Bind(panel, product);
-            }
-        }
+        public const int Columns = 4;
+        private const int Gap = 13;
 
         /// <summary>
-        /// Finds a control by name, ignoring the sidebar (which has its own
-        /// panel1, panel2... that would otherwise match first).
+        /// Fills a grid with a card for every product in the category, sized so
+        /// exactly four fit across at any screen scaling. Call it from OnLoad,
+        /// once the form has its final size. Returns how many cards were added.
         /// </summary>
-        private static Control FindOutsideSidebar(Control parent, string name)
+        public static int FillGrid(FlowLayoutPanel grid, string category)
         {
-            foreach (Control c in parent.Controls)
+            int available = grid.ClientSize.Width - SystemInformation.VerticalScrollBarWidth - 2;
+            int width = available / Columns - Gap;
+            var size = new Size(width, width * 210 / 182);
+
+            grid.SuspendLayout();
+            int count = 0;
+            foreach (Product product in Catalog.InCategory(category))
             {
-                if (c is Navigation) continue;
-                if (c.Name == name) return c;
-                Control found = FindOutsideSidebar(c, name);
-                if (found != null) return found;
+                grid.Controls.Add(CreateCard(product, size));
+                count++;
             }
-            return null;
+            grid.ResumeLayout();
+            return count;
         }
 
-        /// <summary>Fills one card panel with a product and makes it interactive.</summary>
-        public static void Bind(Control panel, Product product)
+        /// <summary>One product card: photo, name, price and an Add button.</summary>
+        public static Control CreateCard(Product product, Size cardSize)
         {
-            ToolTip tip = new ToolTip();
+            Size CardSize = cardSize;
+            int ImageHeight = cardSize.Height * 116 / 210;
 
-            foreach (Control c in panel.Controls)
+            var card = new CardPanel
             {
-                if (c is PictureBox pic)
-                {
-                    pic.Image = product.Image ?? pic.Image;
-                    pic.Cursor = Cursors.Hand;
-                    pic.Click += (s, e) => FormProductDetail.Open(panel.FindForm(), product);
-                    tip.SetToolTip(pic, "View details");
-                }
-                else if (c is Label label)
-                {
-                    label.UseMnemonic = false; // show "&" literally in names
-                    if (label.Text == CartIcon)
-                    {
-                        label.Cursor = Cursors.Hand;
-                        tip.SetToolTip(label, "Add to cart");
-                        label.Click += (s, e) => AddWithFeedback(label, product);
-                    }
-                    else if (label.Text.StartsWith("$"))
-                    {
-                        label.AutoSize = true;
-                        label.Text = product.PriceText;
-                    }
-                    else if (label.Text == "Woolen Hand Bag")
-                    {
-                        // Long names get an ellipsis instead of spilling outside the card
-                        label.AutoSize = false;
-                        label.AutoEllipsis = true;
-                        label.Width = panel.ClientSize.Width - label.Left - 4;
-                        label.Text = product.Name;
-                        tip.SetToolTip(label, product.Name);
-                    }
-                }
-            }
+                Size = CardSize,
+                Margin = new Padding(0, 0, Gap, Gap),
+                BackColor = Theme.Surface,
+                Cursor = Cursors.Hand,
+                Tag = product.Id,
+            };
+
+            var photo = new PictureBox
+            {
+                Image = ImageFit.Cover(product.Image, new Size(CardSize.Width, ImageHeight)),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Location = new Point(1, 1),
+                Size = new Size(CardSize.Width - 2, ImageHeight),
+                Cursor = Cursors.Hand,
+            };
+
+            var name = new Label
+            {
+                Text = product.Name,
+                UseMnemonic = false,
+                AutoEllipsis = true,
+                Font = Theme.CardTitleFont,
+                ForeColor = Theme.Ink,
+                Location = new Point(10, ImageHeight + 9),
+                Size = new Size(CardSize.Width - 20, 22),
+                Cursor = Cursors.Hand,
+            };
+
+            var delivery = new Label
+            {
+                Text = "Free delivery",
+                Font = Theme.SmallFont,
+                ForeColor = Theme.Muted,
+                AutoSize = true,
+                Location = new Point(11, ImageHeight + 31),
+            };
+
+            var price = new Label
+            {
+                Text = product.PriceText,
+                Font = Theme.CardPriceFont,
+                ForeColor = Theme.Brand,
+                AutoSize = true,
+                Location = new Point(9, CardSize.Height - 38),
+            };
+
+            Button add = Theme.PrimaryButton("Add");
+            add.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            add.Size = new Size(70, 30);
+            add.Location = new Point(CardSize.Width - add.Width - 10, CardSize.Height - 40);
+            add.Name = "buttonAdd";
+            add.Click += (s, e) => AddWithFeedback(add, product);
+
+            new ToolTip().SetToolTip(name, product.Name);
+
+            card.Controls.AddRange(new Control[] { photo, name, delivery, price, add });
+
+            // Clicking anywhere except the button opens the product page
+            EventHandler open = (s, e) => FormProductDetail.Open(card.FindForm(), product);
+            foreach (Control c in new Control[] { card, photo, name, delivery, price })
+                c.Click += open;
+
+            return card;
         }
 
-        /// <summary>Adds to the cart and briefly swaps the icon to a tick so the click feels confirmed.</summary>
-        public static void AddWithFeedback(Label icon, Product product)
+        /// <summary>Adds to the cart and briefly confirms on the button itself.</summary>
+        public static void AddWithFeedback(Button button, Product product)
         {
             Cart.Add(product);
 
-            string original = icon.Text;
-            Color originalColor = icon.ForeColor;
-            icon.Text = "✔";
-            icon.ForeColor = Theme.Price;
+            string original = button.Text;
+            Color originalBack = button.BackColor;
+            button.Text = "Added ✓";
+            button.BackColor = Theme.AccentDark;
+            button.Enabled = false;
 
-            Timer timer = new Timer { Interval = 900 };
+            var timer = new Timer { Interval = 900 };
             timer.Tick += (s, e) =>
             {
                 timer.Stop();
                 timer.Dispose();
-                if (!icon.IsDisposed)
+                if (!button.IsDisposed)
                 {
-                    icon.Text = original;
-                    icon.ForeColor = originalColor;
+                    button.Text = original;
+                    button.BackColor = originalBack;
+                    button.Enabled = true;
                 }
             };
             timer.Start();
         }
 
-        /// <summary>
-        /// Builds a card in the same style as the designer cards, for screens
-        /// created in code (used by the Pots page).
-        /// </summary>
-        public static Panel CreateCard(Product product)
+        /// <summary>A white card with a thin border that turns teal on hover.</summary>
+        private sealed class CardPanel : Panel
         {
-            Panel card = new Panel
-            {
-                BackColor = Color.White,
-                BorderStyle = BorderStyle.Fixed3D,
-                Size = new Size(160, 197),
-                Margin = new Padding(10),
-            };
-            card.Controls.Add(new PictureBox
-            {
-                BorderStyle = BorderStyle.Fixed3D,
-                Location = new Point(9, 9),
-                Size = new Size(136, 106),
-                SizeMode = PictureBoxSizeMode.StretchImage,
-            });
-            card.Controls.Add(new Label
-            {
-                Text = "Woolen Hand Bag",
-                Font = new Font("Dubai", 9F),
-                Location = new Point(5, 118),
-                Size = new Size(140, 25),
-            });
-            card.Controls.Add(new Label
-            {
-                Text = "$",
-                Font = new Font("Georgia", 9F, FontStyle.Bold),
-                ForeColor = Theme.Price,
-                Location = new Point(6, 140),
-            });
-            card.Controls.Add(new Label
-            {
-                Text = "Free Delivery",
-                Font = new Font("Gabriola", 7.8F, FontStyle.Bold),
-                Location = new Point(6, 158),
-                Size = new Size(90, 23),
-            });
-            card.Controls.Add(new Label
-            {
-                Text = CartIcon,
-                Font = new Font("Microsoft Sans Serif", 10.8F),
-                Location = new Point(114, 162),
-                Size = new Size(32, 22),
-            });
+            private bool hover;
 
-            Bind(card, product);
-            return card;
+            public CardPanel()
+            {
+                DoubleBuffered = true;
+                ResizeRedraw = true;
+            }
+
+            protected override void OnControlAdded(ControlEventArgs e)
+            {
+                base.OnControlAdded(e);
+                e.Control.MouseEnter += (s, args) => SetHover(true);
+                e.Control.MouseLeave += (s, args) => SetHover(ClientRectangle.Contains(PointToClient(Cursor.Position)));
+            }
+
+            protected override void OnMouseEnter(EventArgs e)
+            {
+                base.OnMouseEnter(e);
+                SetHover(true);
+            }
+
+            protected override void OnMouseLeave(EventArgs e)
+            {
+                base.OnMouseLeave(e);
+                SetHover(ClientRectangle.Contains(PointToClient(Cursor.Position)));
+            }
+
+            private void SetHover(bool value)
+            {
+                if (hover == value) return;
+                hover = value;
+                Invalidate();
+            }
+
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                base.OnPaint(e);
+                using (var pen = new Pen(hover ? Theme.Accent : Theme.Border))
+                    e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
+            }
         }
     }
 }

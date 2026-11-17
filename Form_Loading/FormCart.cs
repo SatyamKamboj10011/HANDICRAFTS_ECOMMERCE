@@ -8,16 +8,17 @@ using Form_Loading.UI;
 namespace Form_Loading
 {
     /// <summary>
-    /// Shopping cart: change quantities, remove items, see the total and check out.
+    /// Shopping cart: item list with quantity controls on the left,
+    /// order summary and checkout on the right.
     /// </summary>
     public partial class FormCart : Form
     {
-        private const string ColImage = "Image", ColName = "Item", ColPrice = "Price", ColMinus = "Minus",
+        private const string ColImage = "Image", ColName = "Item", ColMinus = "Minus",
             ColQty = "Qty", ColPlus = "Plus", ColTotal = "Total", ColRemove = "Remove";
 
         private DataGridView grid;
-        private Label summary;
         private Panel emptyState;
+        private Label subtotalValue, totalValue, itemCount;
         private Button checkout, clear;
 
         public FormCart()
@@ -40,100 +41,198 @@ namespace Form_Loading
         private void BuildLayout()
         {
             int left = navigation1.Right + 22;
-            int width = ClientSize.Width - left - 24;
-            int buttonsTop = ClientSize.Height - 56;
-            int summaryTop = buttonsTop - 44;
-            int gridTop = 60;
+            int right = ClientSize.Width - 24;
+            const int summaryWidth = 240;
+            const int top = 84;
+            int listWidth = right - left - summaryWidth - 16;
+            int listHeight = ClientSize.Height - top - 16;
 
-            var title = new Label
-            {
-                Text = "YOUR CART",
-                Font = Theme.HeadingFont,
-                ForeColor = Theme.Heading,
-                BackColor = Color.Transparent,
-                AutoSize = true,
-                Location = new Point(left + width / 2 - 70, 12),
-            };
+            Theme.AddPageHeader(this, left, "Your cart", "Review your items before checking out");
 
+            // ---- Item list -------------------------------------------------
             grid = new DataGridView
             {
-                Location = new Point(left, gridTop),
-                Size = new Size(width, summaryTop - gridTop - 12),
+                Location = new Point(left, top),
+                Size = new Size(listWidth, listHeight),
                 AllowUserToAddRows = false,
                 AllowUserToDeleteRows = false,
                 AllowUserToResizeRows = false,
+                AllowUserToResizeColumns = false,
                 ReadOnly = true,
                 RowHeadersVisible = false,
+                MultiSelect = false,
                 SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                BackgroundColor = Color.White,
-                BorderStyle = BorderStyle.Fixed3D,
+                BackgroundColor = Theme.Surface,
+                BorderStyle = BorderStyle.None,
+                CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal,
+                GridColor = Theme.Border,
+                EnableHeadersVisualStyles = false,
+                ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
                 ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
-                ColumnHeadersHeight = 34,
+                ColumnHeadersHeight = 38,
                 Font = Theme.BodyFont,
             };
-            grid.RowTemplate.Height = 64;
-            grid.DefaultCellStyle.SelectionBackColor = Color.FromArgb(232, 245, 240);
-            grid.DefaultCellStyle.SelectionForeColor = Color.Black;
+            grid.RowTemplate.Height = 72;
+            grid.ColumnHeadersDefaultCellStyle.BackColor = Theme.Surface;
+            grid.ColumnHeadersDefaultCellStyle.ForeColor = Theme.Muted;
+            grid.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 9F);
+            grid.ColumnHeadersDefaultCellStyle.SelectionBackColor = Theme.Surface;
+            grid.ColumnHeadersDefaultCellStyle.Padding = new Padding(8, 0, 0, 0);
+            grid.DefaultCellStyle.BackColor = Theme.Surface;
+            grid.DefaultCellStyle.ForeColor = Theme.Ink;
+            grid.DefaultCellStyle.SelectionBackColor = Theme.Surface; // no blue selection bar
+            grid.DefaultCellStyle.SelectionForeColor = Theme.Ink;
+            grid.DefaultCellStyle.Padding = new Padding(8, 0, 0, 0);
 
-            grid.Columns.Add(new DataGridViewImageColumn { Name = ColImage, HeaderText = "", Width = 80, ImageLayout = DataGridViewImageCellLayout.Zoom });
-            grid.Columns.Add(new DataGridViewTextBoxColumn { Name = ColName, HeaderText = "Item", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-            grid.Columns.Add(new DataGridViewTextBoxColumn { Name = ColPrice, HeaderText = "Price", Width = 85 });
-            grid.Columns.Add(new DataGridViewButtonColumn { Name = ColMinus, HeaderText = "", Text = "−", UseColumnTextForButtonValue = true, Width = 36 });
-            grid.Columns.Add(new DataGridViewTextBoxColumn { Name = ColQty, HeaderText = "Qty", Width = 48 });
-            grid.Columns.Add(new DataGridViewButtonColumn { Name = ColPlus, HeaderText = "", Text = "+", UseColumnTextForButtonValue = true, Width = 36 });
-            grid.Columns.Add(new DataGridViewTextBoxColumn { Name = ColTotal, HeaderText = "Total", Width = 90 });
-            grid.Columns.Add(new DataGridViewButtonColumn { Name = ColRemove, HeaderText = "", Text = "Remove", UseColumnTextForButtonValue = true, Width = 80 });
+            grid.Columns.Add(new DataGridViewImageColumn { Name = ColImage, HeaderText = "", Width = 68, ImageLayout = DataGridViewImageCellLayout.Zoom });
+            grid.Columns.Add(new DataGridViewTextBoxColumn { Name = ColName, HeaderText = "ITEM", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+            grid.Columns.Add(StepperColumn(ColMinus, "−"));
+            grid.Columns.Add(new DataGridViewTextBoxColumn { Name = ColQty, HeaderText = "QTY", Width = 38 });
+            grid.Columns.Add(StepperColumn(ColPlus, "+"));
+            grid.Columns.Add(new DataGridViewTextBoxColumn { Name = ColTotal, HeaderText = "TOTAL", Width = 80 });
+            grid.Columns.Add(new DataGridViewButtonColumn { Name = ColRemove, HeaderText = "", Text = "✕", UseColumnTextForButtonValue = true, Width = 34, FlatStyle = FlatStyle.Flat });
 
-            foreach (string col in new[] { ColPrice, ColQty, ColTotal })
-                grid.Columns[col].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            grid.Columns[ColTotal].DefaultCellStyle.Font = new Font(Theme.BodyFont, FontStyle.Bold);
+            grid.Columns[ColImage].DefaultCellStyle.Padding = new Padding(8, 8, 0, 8);
+            grid.Columns[ColName].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            grid.Columns[ColName].DefaultCellStyle.Font = new Font("Segoe UI Semibold", 10F);
+            grid.Columns[ColQty].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grid.Columns[ColQty].DefaultCellStyle.Padding = Padding.Empty;
+            grid.Columns[ColQty].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            grid.Columns[ColQty].HeaderCell.Style.Padding = Padding.Empty;
+            grid.Columns[ColTotal].DefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            grid.Columns[ColTotal].DefaultCellStyle.ForeColor = Theme.Brand;
+            grid.Columns[ColTotal].DefaultCellStyle.SelectionForeColor = Theme.Brand;
+            grid.Columns[ColRemove].DefaultCellStyle.ForeColor = Theme.Muted;
+            grid.Columns[ColRemove].DefaultCellStyle.Padding = new Padding(2, 20, 6, 20);
             grid.CellContentClick += GridButtonClicked;
 
+            // ---- Empty state -----------------------------------------------
             emptyState = new Panel
             {
                 Location = grid.Location,
                 Size = grid.Size,
-                BackColor = Color.White,
-                BorderStyle = BorderStyle.Fixed3D,
+                BackColor = Theme.Surface,
                 Visible = false,
             };
-            var emptyText = new Label
+            emptyState.Controls.Add(new Label
             {
-                Text = "Your cart is empty.\nBrowse our handcrafted collections to add something special.",
-                Font = Theme.BodyFont,
+                Text = "Your cart is empty",
+                Font = new Font("Segoe UI", 14F, FontStyle.Bold),
+                ForeColor = Theme.Ink,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Top,
-                Height = 180,
-            };
+                Location = new Point(0, 120),
+                Size = new Size(emptyState.Width, 32),
+            });
+            emptyState.Controls.Add(new Label
+            {
+                Text = "Browse our collections to find something handmade you'll love.",
+                Font = Theme.BodyFont,
+                ForeColor = Theme.Muted,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(0, 156),
+                Size = new Size(emptyState.Width, 24),
+            });
             Button browse = Theme.PrimaryButton("Start Shopping");
-            browse.Location = new Point((emptyState.Width - browse.Width) / 2, 180);
+            browse.Location = new Point((emptyState.Width - browse.Width) / 2, 200);
             browse.Click += (s, e) => Nav.Go(this, new FormCategory());
             emptyState.Controls.Add(browse);
-            emptyState.Controls.Add(emptyText);
 
-            summary = new Label
+            // ---- Order summary ---------------------------------------------
+            int sx = right - summaryWidth;
+            var summary = new Panel
             {
-                Font = Theme.PriceFont,
-                ForeColor = Theme.Heading,
-                BackColor = Color.Transparent,
-                AutoSize = true,
-                Location = new Point(left, summaryTop),
+                Location = new Point(sx, top),
+                Size = new Size(summaryWidth, 300),
+                BackColor = Theme.Surface,
             };
+            int pad = 20, inner = summaryWidth - pad * 2;
 
-            Button keepShopping = Theme.SecondaryButton("Continue Shopping");
-            keepShopping.Width = 170;
-            keepShopping.Location = new Point(left, buttonsTop);
-            keepShopping.Click += (s, e) => Nav.Go(this, new FormCategory());
+            summary.Controls.Add(new Label
+            {
+                Text = "Order summary",
+                Font = new Font("Segoe UI", 12F, FontStyle.Bold),
+                ForeColor = Theme.Ink,
+                AutoSize = true,
+                Location = new Point(pad - 2, 18),
+            });
+            Label unused;
+            itemCount = SummaryRow(summary, "Items", 60, pad, inner, out unused);
+            subtotalValue = SummaryRow(summary, "Subtotal", 88, pad, inner, out unused);
+            Label delivery = SummaryRow(summary, "Delivery", 116, pad, inner, out unused);
+            delivery.Text = "Free";
+            delivery.ForeColor = Theme.Accent;
 
-            clear = Theme.SecondaryButton("Clear Cart");
-            clear.Location = new Point(left + 185, buttonsTop);
-            clear.Click += ClearCart;
+            summary.Controls.Add(new Label // divider
+            {
+                BackColor = Theme.Border,
+                Location = new Point(pad, 148),
+                Size = new Size(inner, 1),
+            });
+            Label totalCaption;
+            totalValue = SummaryRow(summary, "Total", 160, pad, inner, out totalCaption);
+            totalCaption.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            totalCaption.ForeColor = Theme.Ink;
+            totalValue.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            totalValue.ForeColor = Theme.Brand;
 
-            checkout = Theme.PrimaryButton("Checkout ➜");
-            checkout.Location = new Point(left + width - checkout.Width, buttonsTop);
+            checkout = Theme.PrimaryButton("Checkout");
+            checkout.Location = new Point(pad, 200);
+            checkout.Size = new Size(inner, 44);
             checkout.Click += Checkout;
+            summary.Controls.Add(checkout);
 
-            Controls.AddRange(new Control[] { title, grid, emptyState, summary, keepShopping, clear, checkout });
+            Button keepShopping = Theme.LinkButton("Continue shopping", Theme.Accent);
+            keepShopping.Location = new Point(pad - 4, 254);
+            keepShopping.Click += (s, e) => Nav.Go(this, new FormCategory());
+            summary.Controls.Add(keepShopping);
+
+            clear = Theme.LinkButton("Clear cart", Theme.Danger);
+            clear.Click += ClearCart;
+            summary.Controls.Add(clear);
+            clear.Location = new Point(summaryWidth - pad - clear.PreferredSize.Width + 4, 254);
+
+            Controls.AddRange(new Control[] { grid, emptyState, summary });
+        }
+
+        private static DataGridViewButtonColumn StepperColumn(string name, string text)
+        {
+            var col = new DataGridViewButtonColumn
+            {
+                Name = name,
+                HeaderText = "",
+                Text = text,
+                UseColumnTextForButtonValue = true,
+                Width = 32,
+                FlatStyle = FlatStyle.Flat,
+            };
+            col.DefaultCellStyle.Padding = new Padding(2, 22, 2, 22);
+            col.DefaultCellStyle.ForeColor = Theme.Accent;
+            col.DefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            return col;
+        }
+
+        /// <summary>Adds a "caption ........ value" row to the summary card and returns the value label.</summary>
+        private static Label SummaryRow(Control parent, string caption, int y, int x, int width, out Label captionLabel)
+        {
+            captionLabel = new Label
+            {
+                Text = caption,
+                Font = Theme.BodyFont,
+                ForeColor = Theme.Muted,
+                AutoSize = true,
+                Location = new Point(x, y),
+            };
+            var value = new Label
+            {
+                Font = new Font("Segoe UI Semibold", 10F),
+                ForeColor = Theme.Ink,
+                TextAlign = ContentAlignment.TopRight,
+                Location = new Point(x + width - 140, y),
+                Size = new Size(140, 26),
+            };
+            parent.Controls.Add(captionLabel);
+            parent.Controls.Add(value);
+            return value;
         }
 
         private void ShowCart(object sender, EventArgs e)
@@ -141,21 +240,25 @@ namespace Form_Loading
             grid.Rows.Clear();
             foreach (CartItem item in Cart.Items)
             {
-                int row = grid.Rows.Add(item.Product.Image, item.Product.Name, item.Product.PriceText,
-                    null, item.Quantity, null, item.LineTotal.ToString("C2", Catalog.Currency), null);
+                Image thumb = ImageFit.Cover(item.Product.Image, new Size(60, 56));
+                string name = item.Product.Name + Environment.NewLine + item.Product.PriceText + " each";
+                int row = grid.Rows.Add(thumb, name, null, item.Quantity, null,
+                    item.LineTotal.ToString("C2", Catalog.Currency), null);
                 grid.Rows[row].Tag = item.Product.Id;
             }
+            grid.ClearSelection();
 
             bool empty = Cart.Count == 0;
             grid.Visible = !empty;
             emptyState.Visible = empty;
             checkout.Enabled = !empty;
-            clear.Enabled = !empty;
+            checkout.BackColor = empty ? Theme.Border : Theme.Accent;
+            clear.Visible = !empty;
 
-            summary.Text = empty
-                ? "Total: " + 0m.ToString("C2", Catalog.Currency)
-                : string.Format("{0} item{1}  ·  Free delivery  ·  Total: {2}",
-                    Cart.Count, Cart.Count == 1 ? "" : "s", Cart.Total.ToString("C2", Catalog.Currency));
+            string total = Cart.Total.ToString("C2", Catalog.Currency);
+            itemCount.Text = Cart.Count.ToString();
+            subtotalValue.Text = total;
+            totalValue.Text = total;
         }
 
         private void GridButtonClicked(object sender, DataGridViewCellEventArgs e)

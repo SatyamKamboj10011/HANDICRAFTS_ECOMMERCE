@@ -29,170 +29,308 @@
         private void InitializeComponent()
         {
             this.navigation1 = new Form_Loading.Navigation();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.labelSubtitle = new System.Windows.Forms.Label();
+            this.panelHandbags = new System.Windows.Forms.Panel();
+            this.pictureHandbags = new System.Windows.Forms.PictureBox();
+            this.labelHandbags = new System.Windows.Forms.Label();
+            this.labelHandbagsCount = new System.Windows.Forms.Label();
+            this.labelHandbagsArrow = new System.Windows.Forms.Label();
+            this.panelJewellery = new System.Windows.Forms.Panel();
+            this.pictureJewellery = new System.Windows.Forms.PictureBox();
+            this.labelJewellery = new System.Windows.Forms.Label();
+            this.labelJewelleryCount = new System.Windows.Forms.Label();
+            this.labelJewelleryArrow = new System.Windows.Forms.Label();
+            this.panelDecor = new System.Windows.Forms.Panel();
+            this.pictureDecor = new System.Windows.Forms.PictureBox();
+            this.labelDecor = new System.Windows.Forms.Label();
+            this.labelDecorCount = new System.Windows.Forms.Label();
+            this.labelDecorArrow = new System.Windows.Forms.Label();
+            this.panelPots = new System.Windows.Forms.Panel();
+            this.picturePots = new System.Windows.Forms.PictureBox();
+            this.labelPots = new System.Windows.Forms.Label();
+            this.labelPotsCount = new System.Windows.Forms.Label();
+            this.labelPotsArrow = new System.Windows.Forms.Label();
+            this.panelHandbags.SuspendLayout();
+            this.panelJewellery.SuspendLayout();
+            this.panelDecor.SuspendLayout();
+            this.panelPots.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHandbags)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureJewellery)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDecor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePots)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // navigation1
-            // 
-            this.navigation1.Location = new System.Drawing.Point(2, -4);
-            this.navigation1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            //
+            this.navigation1.Location = new System.Drawing.Point(-3, -1);
             this.navigation1.Name = "navigation1";
-            this.navigation1.Size = new System.Drawing.Size(256, 719);
+            this.navigation1.Size = new System.Drawing.Size(228, 575);
             this.navigation1.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(321, 105);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(388, 244);
-            this.panel1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::Form_Loading.Properties.Resources.R__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(357, 209);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.pictureBox5);
-            this.panel2.Location = new System.Drawing.Point(735, 375);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(388, 245);
-            this.panel2.TabIndex = 2;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox5.Image = global::Form_Loading.Properties.Resources._1;
-            this.pictureBox5.Location = new System.Drawing.Point(16, 18);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(357, 209);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Location = new System.Drawing.Point(732, 105);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(388, 245);
-            this.panel3.TabIndex = 2;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox3.Image = global::Form_Loading.Properties.Resources.pots1;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 18);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(357, 209);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Image = global::Form_Loading.Properties.Resources.pots1;
-            this.pictureBox2.Location = new System.Drawing.Point(14, 20);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(357, 209);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Location = new System.Drawing.Point(321, 378);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(388, 245);
-            this.panel4.TabIndex = 2;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox4.Image = global::Form_Loading.Properties.Resources.jeww;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 18);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(357, 209);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(586, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(252, 40);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "CATEGORIES";
-            // 
+            //
+            // labelTitle
+            //
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.labelTitle.Location = new System.Drawing.Point(247, 14);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.TabIndex = 1;
+            this.labelTitle.Text = "Shop by collection";
+            //
+            // labelSubtitle
+            //
+            this.labelSubtitle.AutoSize = true;
+            this.labelSubtitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelSubtitle.Location = new System.Drawing.Point(250, 52);
+            this.labelSubtitle.Name = "labelSubtitle";
+            this.labelSubtitle.TabIndex = 2;
+            this.labelSubtitle.Text = "Every piece is handmade by local artisans";
+            //
+            // panelHandbags
+            //
+            this.panelHandbags.Controls.Add(this.pictureHandbags);
+            this.panelHandbags.Controls.Add(this.labelHandbags);
+            this.panelHandbags.Controls.Add(this.labelHandbagsCount);
+            this.panelHandbags.Controls.Add(this.labelHandbagsArrow);
+            this.panelHandbags.BackColor = System.Drawing.Color.White;
+            this.panelHandbags.Location = new System.Drawing.Point(250, 84);
+            this.panelHandbags.Name = "panelHandbags";
+            this.panelHandbags.Size = new System.Drawing.Size(391, 212);
+            this.panelHandbags.TabIndex = 11;
+            //
+            // pictureHandbags
+            //
+            this.pictureHandbags.Image = global::Form_Loading.Properties.Resources.R__1_;
+            this.pictureHandbags.Location = new System.Drawing.Point(0, 0);
+            this.pictureHandbags.Name = "pictureHandbags";
+            this.pictureHandbags.Size = new System.Drawing.Size(391, 158);
+            this.pictureHandbags.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureHandbags.TabIndex = 12;
+            this.pictureHandbags.TabStop = false;
+            //
+            // labelHandbags
+            //
+            this.labelHandbags.AutoSize = true;
+            this.labelHandbags.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHandbags.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.labelHandbags.Location = new System.Drawing.Point(14, 164);
+            this.labelHandbags.Name = "labelHandbags";
+            this.labelHandbags.TabIndex = 13;
+            this.labelHandbags.Text = "Handbags";
+            //
+            // labelHandbagsCount
+            //
+            this.labelHandbagsCount.AutoSize = true;
+            this.labelHandbagsCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHandbagsCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelHandbagsCount.Location = new System.Drawing.Point(16, 188);
+            this.labelHandbagsCount.Name = "labelHandbagsCount";
+            this.labelHandbagsCount.TabIndex = 14;
+            this.labelHandbagsCount.Text = "0 items";
+            //
+            // labelHandbagsArrow
+            //
+            this.labelHandbagsArrow.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHandbagsArrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(157)))), ((int)(((byte)(143)))));
+            this.labelHandbagsArrow.Location = new System.Drawing.Point(271, 172);
+            this.labelHandbagsArrow.Name = "labelHandbagsArrow";
+            this.labelHandbagsArrow.Size = new System.Drawing.Size(106, 24);
+            this.labelHandbagsArrow.TabIndex = 15;
+            this.labelHandbagsArrow.Text = "Shop  ›";
+            this.labelHandbagsArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
+            // panelJewellery
+            //
+            this.panelJewellery.Controls.Add(this.pictureJewellery);
+            this.panelJewellery.Controls.Add(this.labelJewellery);
+            this.panelJewellery.Controls.Add(this.labelJewelleryCount);
+            this.panelJewellery.Controls.Add(this.labelJewelleryArrow);
+            this.panelJewellery.BackColor = System.Drawing.Color.White;
+            this.panelJewellery.Location = new System.Drawing.Point(655, 84);
+            this.panelJewellery.Name = "panelJewellery";
+            this.panelJewellery.Size = new System.Drawing.Size(391, 212);
+            this.panelJewellery.TabIndex = 16;
+            //
+            // pictureJewellery
+            //
+            this.pictureJewellery.Image = global::Form_Loading.Properties.Resources.jeww;
+            this.pictureJewellery.Location = new System.Drawing.Point(0, 0);
+            this.pictureJewellery.Name = "pictureJewellery";
+            this.pictureJewellery.Size = new System.Drawing.Size(391, 158);
+            this.pictureJewellery.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureJewellery.TabIndex = 17;
+            this.pictureJewellery.TabStop = false;
+            //
+            // labelJewellery
+            //
+            this.labelJewellery.AutoSize = true;
+            this.labelJewellery.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJewellery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.labelJewellery.Location = new System.Drawing.Point(14, 164);
+            this.labelJewellery.Name = "labelJewellery";
+            this.labelJewellery.TabIndex = 18;
+            this.labelJewellery.Text = "Jewellery";
+            //
+            // labelJewelleryCount
+            //
+            this.labelJewelleryCount.AutoSize = true;
+            this.labelJewelleryCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJewelleryCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelJewelleryCount.Location = new System.Drawing.Point(16, 188);
+            this.labelJewelleryCount.Name = "labelJewelleryCount";
+            this.labelJewelleryCount.TabIndex = 19;
+            this.labelJewelleryCount.Text = "0 items";
+            //
+            // labelJewelleryArrow
+            //
+            this.labelJewelleryArrow.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJewelleryArrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(157)))), ((int)(((byte)(143)))));
+            this.labelJewelleryArrow.Location = new System.Drawing.Point(271, 172);
+            this.labelJewelleryArrow.Name = "labelJewelleryArrow";
+            this.labelJewelleryArrow.Size = new System.Drawing.Size(106, 24);
+            this.labelJewelleryArrow.TabIndex = 20;
+            this.labelJewelleryArrow.Text = "Shop  ›";
+            this.labelJewelleryArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
+            // panelDecor
+            //
+            this.panelDecor.Controls.Add(this.pictureDecor);
+            this.panelDecor.Controls.Add(this.labelDecor);
+            this.panelDecor.Controls.Add(this.labelDecorCount);
+            this.panelDecor.Controls.Add(this.labelDecorArrow);
+            this.panelDecor.BackColor = System.Drawing.Color.White;
+            this.panelDecor.Location = new System.Drawing.Point(250, 310);
+            this.panelDecor.Name = "panelDecor";
+            this.panelDecor.Size = new System.Drawing.Size(391, 212);
+            this.panelDecor.TabIndex = 21;
+            //
+            // pictureDecor
+            //
+            this.pictureDecor.Image = global::Form_Loading.Properties.Resources.craft_3102746_1920;
+            this.pictureDecor.Location = new System.Drawing.Point(0, 0);
+            this.pictureDecor.Name = "pictureDecor";
+            this.pictureDecor.Size = new System.Drawing.Size(391, 158);
+            this.pictureDecor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureDecor.TabIndex = 22;
+            this.pictureDecor.TabStop = false;
+            //
+            // labelDecor
+            //
+            this.labelDecor.AutoSize = true;
+            this.labelDecor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDecor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.labelDecor.Location = new System.Drawing.Point(14, 164);
+            this.labelDecor.Name = "labelDecor";
+            this.labelDecor.TabIndex = 23;
+            this.labelDecor.Text = "Decorative Items";
+            //
+            // labelDecorCount
+            //
+            this.labelDecorCount.AutoSize = true;
+            this.labelDecorCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDecorCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelDecorCount.Location = new System.Drawing.Point(16, 188);
+            this.labelDecorCount.Name = "labelDecorCount";
+            this.labelDecorCount.TabIndex = 24;
+            this.labelDecorCount.Text = "0 items";
+            //
+            // labelDecorArrow
+            //
+            this.labelDecorArrow.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDecorArrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(157)))), ((int)(((byte)(143)))));
+            this.labelDecorArrow.Location = new System.Drawing.Point(271, 172);
+            this.labelDecorArrow.Name = "labelDecorArrow";
+            this.labelDecorArrow.Size = new System.Drawing.Size(106, 24);
+            this.labelDecorArrow.TabIndex = 25;
+            this.labelDecorArrow.Text = "Shop  ›";
+            this.labelDecorArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
+            // panelPots
+            //
+            this.panelPots.Controls.Add(this.picturePots);
+            this.panelPots.Controls.Add(this.labelPots);
+            this.panelPots.Controls.Add(this.labelPotsCount);
+            this.panelPots.Controls.Add(this.labelPotsArrow);
+            this.panelPots.BackColor = System.Drawing.Color.White;
+            this.panelPots.Location = new System.Drawing.Point(655, 310);
+            this.panelPots.Name = "panelPots";
+            this.panelPots.Size = new System.Drawing.Size(391, 212);
+            this.panelPots.TabIndex = 26;
+            //
+            // picturePots
+            //
+            this.picturePots.Image = global::Form_Loading.Properties.Resources.pots1;
+            this.picturePots.Location = new System.Drawing.Point(0, 0);
+            this.picturePots.Name = "picturePots";
+            this.picturePots.Size = new System.Drawing.Size(391, 158);
+            this.picturePots.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picturePots.TabIndex = 27;
+            this.picturePots.TabStop = false;
+            //
+            // labelPots
+            //
+            this.labelPots.AutoSize = true;
+            this.labelPots.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPots.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.labelPots.Location = new System.Drawing.Point(14, 164);
+            this.labelPots.Name = "labelPots";
+            this.labelPots.TabIndex = 28;
+            this.labelPots.Text = "Handcrafted Pots";
+            //
+            // labelPotsCount
+            //
+            this.labelPotsCount.AutoSize = true;
+            this.labelPotsCount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPotsCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelPotsCount.Location = new System.Drawing.Point(16, 188);
+            this.labelPotsCount.Name = "labelPotsCount";
+            this.labelPotsCount.TabIndex = 29;
+            this.labelPotsCount.Text = "0 items";
+            //
+            // labelPotsArrow
+            //
+            this.labelPotsArrow.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPotsArrow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(157)))), ((int)(((byte)(143)))));
+            this.labelPotsArrow.Location = new System.Drawing.Point(271, 172);
+            this.labelPotsArrow.Name = "labelPotsArrow";
+            this.labelPotsArrow.Size = new System.Drawing.Size(106, 24);
+            this.labelPotsArrow.TabIndex = 30;
+            this.labelPotsArrow.Text = "Shop  ›";
+            this.labelPotsArrow.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //
             // FormCategory
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            //
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Form_Loading.Properties.Resources.paper_1074131_1920;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1203, 660);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
+            this.ClientSize = new System.Drawing.Size(1069, 528);
+            this.Controls.Add(this.panelHandbags);
+            this.Controls.Add(this.panelJewellery);
+            this.Controls.Add(this.panelDecor);
+            this.Controls.Add(this.panelPots);
+            this.Controls.Add(this.labelSubtitle);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.navigation1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormCategory";
-            this.Text = "Categories - Handcraft Heaven";
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Collections - Handcraft Heaven";
+            this.panelHandbags.ResumeLayout(false);
+            this.panelHandbags.PerformLayout();
+            this.panelJewellery.ResumeLayout(false);
+            this.panelJewellery.PerformLayout();
+            this.panelDecor.ResumeLayout(false);
+            this.panelDecor.PerformLayout();
+            this.panelPots.ResumeLayout(false);
+            this.panelPots.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHandbags)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureJewellery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDecor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePots)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,15 +339,27 @@
         #endregion
 
         private Navigation navigation1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelSubtitle;
+        private System.Windows.Forms.Panel panelHandbags;
+        private System.Windows.Forms.PictureBox pictureHandbags;
+        private System.Windows.Forms.Label labelHandbags;
+        private System.Windows.Forms.Label labelHandbagsCount;
+        private System.Windows.Forms.Label labelHandbagsArrow;
+        private System.Windows.Forms.Panel panelJewellery;
+        private System.Windows.Forms.PictureBox pictureJewellery;
+        private System.Windows.Forms.Label labelJewellery;
+        private System.Windows.Forms.Label labelJewelleryCount;
+        private System.Windows.Forms.Label labelJewelleryArrow;
+        private System.Windows.Forms.Panel panelDecor;
+        private System.Windows.Forms.PictureBox pictureDecor;
+        private System.Windows.Forms.Label labelDecor;
+        private System.Windows.Forms.Label labelDecorCount;
+        private System.Windows.Forms.Label labelDecorArrow;
+        private System.Windows.Forms.Panel panelPots;
+        private System.Windows.Forms.PictureBox picturePots;
+        private System.Windows.Forms.Label labelPots;
+        private System.Windows.Forms.Label labelPotsCount;
+        private System.Windows.Forms.Label labelPotsArrow;
     }
 }

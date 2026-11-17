@@ -4,15 +4,21 @@ using Form_Loading.UI;
 
 namespace Form_Loading
 {
-    /// <summary>Handcrafted pots and ceramics. Cards are generated from the catalogue.</summary>
+    /// <summary>Handcrafted Pots collection. Cards are generated from the catalogue.</summary>
     public partial class FormPots : Form
     {
         public FormPots()
         {
             InitializeComponent();
+        }
 
-            foreach (Product product in Catalog.InCategory(Catalog.Pots))
-                flowProducts.Controls.Add(ProductCards.CreateCard(product));
+        protected override void OnLoad(System.EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // Cards are sized from the grid's final width, so they're added after scaling
+            int count = ProductCards.FillGrid(flowProducts, Catalog.Pots);
+            labelSubtitle.Text = count + " items  ·  " + labelSubtitle.Text;
         }
     }
 }

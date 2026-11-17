@@ -54,7 +54,8 @@ namespace Form_Loading
             Form page = FindForm();
             Button active = null;
             if (page is FormOne) active = buttonHome;
-            else if (page is FormCategory) active = buttonCategories;
+            else if (page is FormCategory || page is FormJewellery || page is FormDecoration || page is FormPots)
+                active = buttonCategories;
             else if (page is FormThree) active = buttonHandbags;
             else if (page is FormCart) active = buttonCart;
 
