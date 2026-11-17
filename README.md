@@ -72,7 +72,7 @@ A few design decisions:
 
 ## Build and release
 
-A GitHub Actions workflow (`.github/workflows/build.yml`) builds the app on Windows for every push. Pushing a version tag such as `v2.0.0` publishes a GitHub Release with the ready-to-run zip.
+A GitHub Actions workflow (`.github/workflows/build.yml`) builds the app on Windows for every push. Publishing a release on GitHub attaches the ready-to-run zip to it automatically.
 
 ## What I'd do next
 
