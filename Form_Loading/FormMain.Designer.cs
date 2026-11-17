@@ -23,162 +23,252 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.buttoLoadFormTwo = new System.Windows.Forms.Button();
-            this.buttonLoadFormOne = new System.Windows.Forms.Button();
+            this.panelCard = new System.Windows.Forms.Panel();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.labelSubtitle = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.labelNoAccount = new System.Windows.Forms.Label();
+            this.buttonSignUp = new System.Windows.Forms.Button();
+            this.labelGuest = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3.SuspendLayout();
+            this.pictureBoxHero = new System.Windows.Forms.PictureBox();
+            this.labelBrand = new System.Windows.Forms.Label();
+            this.labelTagline = new System.Windows.Forms.Label();
+            this.panelCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHero)).BeginInit();
+            this.pictureBoxHero.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.buttoLoadFormTwo);
-            this.panel3.Controls.Add(this.buttonLoadFormOne);
-            this.panel3.Location = new System.Drawing.Point(272, 274);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(474, 229);
-            this.panel3.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(121, 80);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 25);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Password 🔒";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Impact", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(122, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 22);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Username 👤";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label4.Location = new System.Drawing.Point(236, 187);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Test";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(126, 107);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(253, 34);
-            this.textBox2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(126, 30);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(253, 34);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // buttoLoadFormTwo
-            // 
-            this.buttoLoadFormTwo.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.buttoLoadFormTwo.Location = new System.Drawing.Point(301, 155);
-            this.buttoLoadFormTwo.Margin = new System.Windows.Forms.Padding(2);
-            this.buttoLoadFormTwo.Name = "buttoLoadFormTwo";
-            this.buttoLoadFormTwo.Size = new System.Drawing.Size(78, 35);
-            this.buttoLoadFormTwo.TabIndex = 0;
-            this.buttoLoadFormTwo.Text = "Sign Up";
-            this.buttoLoadFormTwo.UseVisualStyleBackColor = false;
-            this.buttoLoadFormTwo.Click += new System.EventHandler(this.buttoLoadFormTwo_Click);
-            // 
-            // buttonLoadFormOne
-            // 
-            this.buttonLoadFormOne.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonLoadFormOne.Location = new System.Drawing.Point(126, 159);
-            this.buttonLoadFormOne.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonLoadFormOne.Name = "buttonLoadFormOne";
-            this.buttonLoadFormOne.Size = new System.Drawing.Size(83, 35);
-            this.buttonLoadFormOne.TabIndex = 0;
-            this.buttonLoadFormOne.Text = "Login";
-            this.buttonLoadFormOne.UseVisualStyleBackColor = false;
-            this.buttonLoadFormOne.Click += new System.EventHandler(this.buttonLoadFormOne_Click);
-            // 
+            //
+            // panelCard
+            //
+            this.panelCard.BackColor = System.Drawing.Color.White;
+            this.panelCard.Controls.Add(this.labelTitle);
+            this.panelCard.Controls.Add(this.labelSubtitle);
+            this.panelCard.Controls.Add(this.labelUsername);
+            this.panelCard.Controls.Add(this.textBoxUsername);
+            this.panelCard.Controls.Add(this.labelPassword);
+            this.panelCard.Controls.Add(this.textBoxPassword);
+            this.panelCard.Controls.Add(this.buttonLogin);
+            this.panelCard.Controls.Add(this.labelNoAccount);
+            this.panelCard.Controls.Add(this.buttonSignUp);
+            this.panelCard.Controls.Add(this.labelGuest);
+            this.panelCard.Location = new System.Drawing.Point(608, 44);
+            this.panelCard.Name = "panelCard";
+            this.panelCard.Padding = new System.Windows.Forms.Padding(32);
+            this.panelCard.Size = new System.Drawing.Size(380, 440);
+            this.panelCard.TabIndex = 0;
+            //
+            // labelTitle
+            //
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.labelTitle.Location = new System.Drawing.Point(30, 30);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.TabIndex = 10;
+            this.labelTitle.Text = "Welcome back";
+            //
+            // labelSubtitle
+            //
+            this.labelSubtitle.AutoSize = true;
+            this.labelSubtitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelSubtitle.Location = new System.Drawing.Point(33, 76);
+            this.labelSubtitle.Name = "labelSubtitle";
+            this.labelSubtitle.TabIndex = 11;
+            this.labelSubtitle.Text = "Sign in to Handcraft Heaven";
+            //
+            // labelUsername
+            //
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelUsername.Location = new System.Drawing.Point(33, 118);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.TabIndex = 12;
+            this.labelUsername.Text = "Username or email";
+            //
+            // textBoxUsername
+            //
+            this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.Location = new System.Drawing.Point(36, 142);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(308, 34);
+            this.textBoxUsername.TabIndex = 1;
+            //
+            // labelPassword
+            //
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelPassword.Location = new System.Drawing.Point(33, 190);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.TabIndex = 13;
+            this.labelPassword.Text = "Password";
+            //
+            // textBoxPassword
+            //
+            this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(36, 214);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(308, 34);
+            this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            //
+            // buttonLogin
+            //
+            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(157)))), ((int)(((byte)(143)))));
+            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLogin.FlatAppearance.BorderSize = 0;
+            this.buttonLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(128)))), ((int)(((byte)(116)))));
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogin.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
+            this.buttonLogin.Location = new System.Drawing.Point(36, 270);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(308, 44);
+            this.buttonLogin.TabIndex = 3;
+            this.buttonLogin.Text = "Sign In";
+            this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            //
+            // labelNoAccount
+            //
+            this.labelNoAccount.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelNoAccount.Location = new System.Drawing.Point(36, 326);
+            this.labelNoAccount.Name = "labelNoAccount";
+            this.labelNoAccount.Size = new System.Drawing.Size(308, 20);
+            this.labelNoAccount.TabIndex = 14;
+            this.labelNoAccount.Text = "New here?";
+            this.labelNoAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //
+            // buttonSignUp
+            //
+            this.buttonSignUp.BackColor = System.Drawing.Color.White;
+            this.buttonSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSignUp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(157)))), ((int)(((byte)(143)))));
+            this.buttonSignUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(245)))), ((int)(((byte)(243)))));
+            this.buttonSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSignUp.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(157)))), ((int)(((byte)(143)))));
+            this.buttonSignUp.Location = new System.Drawing.Point(36, 350);
+            this.buttonSignUp.Name = "buttonSignUp";
+            this.buttonSignUp.Size = new System.Drawing.Size(308, 44);
+            this.buttonSignUp.TabIndex = 4;
+            this.buttonSignUp.Text = "Create an account";
+            this.buttonSignUp.UseVisualStyleBackColor = false;
+            this.buttonSignUp.Click += new System.EventHandler(this.buttonSignUp_Click);
+            //
+            // labelGuest
+            //
+            this.labelGuest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelGuest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGuest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.labelGuest.Location = new System.Drawing.Point(36, 404);
+            this.labelGuest.Name = "labelGuest";
+            this.labelGuest.Size = new System.Drawing.Size(308, 20);
+            this.labelGuest.TabIndex = 5;
+            this.labelGuest.Text = "Continue as guest";
+            this.labelGuest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGuest.Click += new System.EventHandler(this.labelGuest_Click);
+            //
             // pictureBox1
-            // 
+            //
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Form_Loading.Properties.Resources.a_visually_appealing_and_meaningful_logo_for_handc_oaqGsI5nTViMB4uBa5oiKw_Bd6HOpCKT8eKPaxM6sPAVA_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(214, 118);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 91);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(100, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            // 
+            //
+            // labelBrand
+            //
+            this.labelBrand.BackColor = System.Drawing.Color.Transparent;
+            this.labelBrand.Font = new System.Drawing.Font("Georgia", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(58)))), ((int)(((byte)(33)))));
+            this.labelBrand.Location = new System.Drawing.Point(114, 206);
+            this.labelBrand.Name = "labelBrand";
+            this.labelBrand.Size = new System.Drawing.Size(300, 84);
+            this.labelBrand.TabIndex = 21;
+            this.labelBrand.Text = "Handcraft\r\nHeaven";
+            this.labelBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //
+            // labelTagline
+            //
+            this.labelTagline.BackColor = System.Drawing.Color.Transparent;
+            this.labelTagline.Font = new System.Drawing.Font("Georgia", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTagline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(96)))), ((int)(((byte)(72)))));
+            this.labelTagline.Location = new System.Drawing.Point(114, 292);
+            this.labelTagline.Name = "labelTagline";
+            this.labelTagline.Size = new System.Drawing.Size(300, 26);
+            this.labelTagline.TabIndex = 22;
+            this.labelTagline.Text = "Handmade with love";
+            this.labelTagline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            //
+            // pictureBoxHero
+            //
+            this.pictureBoxHero.Controls.Add(this.pictureBox1);
+            this.pictureBoxHero.Controls.Add(this.labelBrand);
+            this.pictureBoxHero.Controls.Add(this.labelTagline);
+            this.pictureBoxHero.Image = global::Form_Loading.Properties.Resources.IMG_20240824_WA0020_2;
+            this.pictureBoxHero.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxHero.Name = "pictureBoxHero";
+            this.pictureBoxHero.Size = new System.Drawing.Size(528, 528);
+            this.pictureBoxHero.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHero.TabIndex = 20;
+            this.pictureBoxHero.TabStop = false;
+            //
             // FormMain
-            // 
-            this.AcceptButton = this.buttoLoadFormTwo;
+            //
+            this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::Form_Loading.Properties.Resources.IMG_20240824_WA0020_2;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1069, 528);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelCard);
+            this.Controls.Add(this.pictureBoxHero);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "This is Form Main";
-            this.Load += new System.EventHandler(this.FormMain_Load);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.Text = "Sign In - Handcraft Heaven";
+            this.panelCard.ResumeLayout(false);
+            this.panelCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pictureBoxHero.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHero)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLoadFormOne;
-        private System.Windows.Forms.Button buttoLoadFormTwo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelCard;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelSubtitle;
+        private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Label labelNoAccount;
+        private System.Windows.Forms.Button buttonSignUp;
+        private System.Windows.Forms.Label labelGuest;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxHero;
+        private System.Windows.Forms.Label labelBrand;
+        private System.Windows.Forms.Label labelTagline;
     }
 }
-

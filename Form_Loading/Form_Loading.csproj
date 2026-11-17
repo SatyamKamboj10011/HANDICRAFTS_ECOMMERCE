@@ -7,7 +7,7 @@
     <ProjectGuid>{88017E28-7198-4F45-A6DC-19C69EBB2499}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Form_Loading</RootNamespace>
-    <AssemblyName>Form_Loading</AssemblyName>
+    <AssemblyName>HandcraftHeaven</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormCart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,30 +103,6 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="imageFivedes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="imageFivedes.Designer.cs">
-      <DependentUpon>imageFivedes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="imageFourdes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="imageFourdes.Designer.cs">
-      <DependentUpon>imageFourdes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="imageThreedes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="imageThreedes.Designer.cs">
-      <DependentUpon>imageThreedes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="imageTwodes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="imageTwodes.Designer.cs">
-      <DependentUpon>imageTwodes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Navigation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,17 +110,19 @@
       <DependentUpon>Navigation.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\imageOnedes.cs">
+    <Compile Include="FormProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Resources\imageOnedes.Designer.cs">
-      <DependentUpon>imageOnedes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Spinner.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="HeroSlideshow.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Catalog.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\UserStore.cs" />
+    <Compile Include="UI\ImageFit.cs" />
+    <Compile Include="UI\Nav.cs" />
+    <Compile Include="UI\ProductCards.cs" />
+    <Compile Include="UI\Theme.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCart.resx">
       <DependentUpon>FormCart.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,18 +147,6 @@
     <EmbeddedResource Include="FormTwo.resx">
       <DependentUpon>FormTwo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="imageFivedes.resx">
-      <DependentUpon>imageFivedes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="imageFourdes.resx">
-      <DependentUpon>imageFourdes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="imageThreedes.resx">
-      <DependentUpon>imageThreedes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="imageTwodes.resx">
-      <DependentUpon>imageTwodes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Navigation.resx">
       <DependentUpon>Navigation.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,9 +160,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Resources\imageOnedes.resx">
-      <DependentUpon>imageOnedes.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -215,12 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FormFive\FormFive.csproj">
-      <Project>{e58be124-1dde-4a95-bee5-01bc5be6d9fd}</Project>
-      <Name>FormFive</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Handicraft-1.jpg" />
@@ -335,9 +286,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\R %281%29.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

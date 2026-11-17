@@ -1,58 +1,48 @@
-﻿//
-// FORM ONE
-// ========
-// FormOne is a child of FormMain
-//
-using System;
+﻿using System;
 using System.Windows.Forms;
+using Form_Loading.Models;
+using Form_Loading.UI;
 
-namespace Form_Loading {
-    public partial class FormOne : Form {
+namespace Form_Loading
+{
+    /// <summary>Home screen: rotating hero banner plus a card for each category.</summary>
+    public partial class FormOne : Form
+    {
+        private HeroSlideshow slideshow;
 
-        private Spinner spinner;
-        Form FormParent;
-        Form FormThree;
-       
-        
-
-        //
-        // Constructor FormOne
-        // ===================
-        public FormOne(Form FormParent) {
+        public FormOne()
+        {
             InitializeComponent();
-           
-            //textBoxTotalDistance.Text = totalDistance.ToString();   
 
-            // The parent of this form is FormMain. A reference
-            // to it was passed in via this Constructor. Save it
-            // so we know where to go back to.
-            this.FormParent = FormParent;
+            // Each category card opens its collection, wherever it's clicked
+            SetUpCard(Catalog.Handbags, panelHandbags, pictureHandbags, labelHandbags, labelHandbagsShop);
+            SetUpCard(Catalog.Jewellery, panelJewellery, pictureJewellery, labelJewellery, labelJewelleryShop);
+            SetUpCard(Catalog.Decor, panelDecor, pictureDecor, labelDecor, labelDecorShop);
+            SetUpCard(Catalog.Pots, panelPots, picturePots, labelPots, labelPotsShop);
 
-            // Form One can also display Form Three ...
-            FormThree = new FormThree(this);
-
-          
-
+            labelViewAll.Click += (s, e) => Nav.Go(this, new FormCategory());
         }
 
-        private void FormOne_Load(object sender, EventArgs e) {
-
-            spinner = new Spinner(pictureBox1);
-
-            spinner.LoadImages();
-           
-
-            Application.DoEvents();
-        }
-
-        private void navigation1_Load(object sender, EventArgs e)
+        private void FormOne_Load(object sender, EventArgs e)
         {
-            
+            slideshow = new HeroSlideshow(pictureBoxHero);
+            slideshow.Start();
+            FormClosed += (s, args) => slideshow.Dispose();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void SetUpCard(string category, Panel card, PictureBox picture, params Label[] labels)
         {
+            // Crop the photo to fill the card without stretching it
+            picture.Image = ImageFit.Cover(picture.Image, picture.Size);
 
+            picture.Cursor = Cursors.Hand;
+            card.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
+            picture.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
+            foreach (Label label in labels)
+            {
+                label.Cursor = Cursors.Hand;
+                label.Click += (s, e) => Nav.Go(this, Nav.ForCategory(category));
+            }
         }
     }
 }
