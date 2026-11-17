@@ -24,28 +24,43 @@ namespace Form_Loading.UI
         {
             int available = grid.ClientSize.Width - SystemInformation.VerticalScrollBarWidth - 2;
             int width = available / Columns - Gap;
-            var size = new Size(width, width * 210 / 182);
 
             grid.SuspendLayout();
             int count = 0;
             foreach (Product product in Catalog.InCategory(category))
             {
-                grid.Controls.Add(CreateCard(product, size));
+                grid.Controls.Add(CreateCard(product, width));
                 count++;
             }
             grid.ResumeLayout();
             return count;
         }
 
-        /// <summary>One product card: photo, name, price and an Add button.</summary>
-        public static Control CreateCard(Product product, Size cardSize)
+        /// <summary>
+        /// One product card: photo, name, price and an Add button.
+        /// The text rows are stacked using measured font heights, so nothing
+        /// overlaps whatever the card width or Windows display scaling.
+        /// </summary>
+        public static Control CreateCard(Product product, int width)
         {
-            Size CardSize = cardSize;
-            int ImageHeight = cardSize.Height * 116 / 210;
+            const int pad = 10;
+            int imageHeight = width * 62 / 100;
+            Font buttonFont = new Font("Segoe UI", 9F, FontStyle.Bold);
+
+            int nameHeight = LineHeight(Theme.CardTitleFont);
+            int deliveryHeight = LineHeight(Theme.SmallFont);
+            int priceHeight = LineHeight(Theme.CardPriceFont);
+            int buttonHeight = Math.Max(30, LineHeight(buttonFont) + 12);
+            int buttonWidth = TextRenderer.MeasureText("Added ✓", buttonFont).Width + 18;
+
+            int nameTop = imageHeight + pad;
+            int deliveryTop = nameTop + nameHeight + 2;
+            int rowTop = deliveryTop + deliveryHeight + 8;
+            int height = rowTop + Math.Max(buttonHeight, priceHeight) + pad;
 
             var card = new CardPanel
             {
-                Size = CardSize,
+                Size = new Size(width, height),
                 Margin = new Padding(0, 0, Gap, Gap),
                 BackColor = Theme.Surface,
                 Cursor = Cursors.Hand,
@@ -54,10 +69,10 @@ namespace Form_Loading.UI
 
             var photo = new PictureBox
             {
-                Image = ImageFit.Cover(product.Image, new Size(CardSize.Width, ImageHeight)),
+                Image = ImageFit.Cover(product.Image, new Size(width - 2, imageHeight)),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Location = new Point(1, 1),
-                Size = new Size(CardSize.Width - 2, ImageHeight),
+                Size = new Size(width - 2, imageHeight),
                 Cursor = Cursors.Hand,
             };
 
@@ -68,8 +83,8 @@ namespace Form_Loading.UI
                 AutoEllipsis = true,
                 Font = Theme.CardTitleFont,
                 ForeColor = Theme.Ink,
-                Location = new Point(10, ImageHeight + 9),
-                Size = new Size(CardSize.Width - 20, 22),
+                Location = new Point(pad - 1, nameTop),
+                Size = new Size(width - pad * 2, nameHeight),
                 Cursor = Cursors.Hand,
             };
 
@@ -78,25 +93,26 @@ namespace Form_Loading.UI
                 Text = "Free delivery",
                 Font = Theme.SmallFont,
                 ForeColor = Theme.Muted,
-                AutoSize = true,
-                Location = new Point(11, ImageHeight + 31),
+                Location = new Point(pad, deliveryTop),
+                Size = new Size(width - pad * 2, deliveryHeight),
             };
+
+            Button add = Theme.PrimaryButton("Add");
+            add.Font = buttonFont;
+            add.Size = new Size(buttonWidth, buttonHeight);
+            add.Location = new Point(width - buttonWidth - pad, rowTop);
+            add.Name = "buttonAdd";
+            add.Click += (s, e) => AddWithFeedback(add, product);
 
             var price = new Label
             {
                 Text = product.PriceText,
                 Font = Theme.CardPriceFont,
                 ForeColor = Theme.Brand,
-                AutoSize = true,
-                Location = new Point(9, CardSize.Height - 38),
+                AutoEllipsis = true,
+                Location = new Point(pad - 2, rowTop + (buttonHeight - priceHeight) / 2),
+                Size = new Size(add.Left - pad - 4, priceHeight),
             };
-
-            Button add = Theme.PrimaryButton("Add");
-            add.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            add.Size = new Size(70, 30);
-            add.Location = new Point(CardSize.Width - add.Width - 10, CardSize.Height - 40);
-            add.Name = "buttonAdd";
-            add.Click += (s, e) => AddWithFeedback(add, product);
 
             new ToolTip().SetToolTip(name, product.Name);
 
@@ -108,6 +124,11 @@ namespace Form_Loading.UI
                 c.Click += open;
 
             return card;
+        }
+
+        private static int LineHeight(Font font)
+        {
+            return TextRenderer.MeasureText("Ag", font).Height;
         }
 
         /// <summary>Adds to the cart and briefly confirms on the button itself.</summary>
